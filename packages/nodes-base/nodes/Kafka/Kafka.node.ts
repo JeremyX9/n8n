@@ -12,7 +12,7 @@ import type {
 	INodeType,
 	INodeTypeDescription,
 } from 'n8n-workflow';
-import { ApplicationError, NodeConnectionTypes, NodeOperationError } from 'n8n-workflow';
+import { NodeConnectionTypes, NodeOperationError, UserError } from 'n8n-workflow';
 
 import { generatePairedItemData } from '../../utils/utilities';
 import { createSchemaRegistry } from './utils';
@@ -234,7 +234,8 @@ export class Kafka implements INodeType {
 					};
 					if (credentials.authentication === true) {
 						if (!(credentials.username && credentials.password)) {
-							throw new ApplicationError('Username and password are required for authentication', {
+							// eslint-disable-next-line n8n-nodes-base/node-execute-block-wrong-error-thrown
+							throw new UserError('Username and password are required for authentication', {
 								level: 'warning',
 							});
 						}
