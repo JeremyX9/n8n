@@ -1,0 +1,35 @@
+diff --git a/dist/lib/constants.js b/dist/lib/constants.js
+index 4003fda671e159845c19c0f5c2ff04c0cb1ce1b5..d5166621f7ee961ea37705e9a61cc8471fded668 100644
+--- a/dist/lib/constants.js
++++ b/dist/lib/constants.js
+@@ -177,7 +177,10 @@ const N8N_NODE_ERROR_TYPES = [
+   "ApplicationError",
+   "NodeOperationError",
+   "NodeApiError",
+-  "TriggerCloseError"
++  "TriggerCloseError",
++  "UserError",
++  "OperationalError",
++  "UnexpectedError"
+ ];
+ const CREDS_EXEMPTED_FROM_API_SUFFIX = [
+   "Amqp",
+diff --git a/dist/lib/rules/node-execute-block-wrong-error-thrown.js b/dist/lib/rules/node-execute-block-wrong-error-thrown.js
+index d43f511c54ea0582a0834fd5cd4b99d69eac7967..9a33a0a84df3f7dde4b657f6d1f0d42450e951a4 100644
+--- a/dist/lib/rules/node-execute-block-wrong-error-thrown.js
++++ b/dist/lib/rules/node-execute-block-wrong-error-thrown.js
+@@ -29,12 +29,12 @@ var node_execute_block_wrong_error_thrown_default = import_utils2.utils.createRu
+   meta: {
+     type: "problem",
+     docs: {
+-      description: "The `execute()` method in a node may only throw `ApplicationError`, NodeApiError`, `NodeOperationError`, or `TriggerCloseError`.",
++      description: "The `execute()` method in a node may only throw `NodeOperationError`, `NodeApiError`, `TriggerCloseError`, `UserError`, `OperationalError`, `UnexpectedError`, or the deprecated `ApplicationError`.",
+       recommended: "strict"
+     },
+     schema: [],
+     messages: {
+-      useProperError: "Use `ApplicationError`, NodeApiError`, `NodeOperationError`, or `TriggerCloseError` [non-autofixable]"
++      useProperError: "Use `NodeOperationError`, `NodeApiError`, `TriggerCloseError`, `UserError`, `OperationalError`, or `UnexpectedError` [non-autofixable]"
+     }
+   },
+   defaultOptions: [],

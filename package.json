@@ -203,7 +203,8 @@
       "@lezer/highlight": "patches/@lezer__highlight.patch",
       "v-code-diff": "patches/v-code-diff.patch",
       "vuedraggable@4.1.0": "patches/vuedraggable@4.1.0.patch",
-      "assert@2.1.0": "patches/assert@2.1.0.patch"
+      "assert@2.1.0": "patches/assert@2.1.0.patch",
+      "eslint-plugin-n8n-nodes-base@1.16.5": "patches/eslint-plugin-n8n-nodes-base@1.16.5.patch"
     }
   }
 }
